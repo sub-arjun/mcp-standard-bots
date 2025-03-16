@@ -276,17 +276,16 @@ class MCPStandardBotsServer(FastMCP):
         import asyncio
         asyncio.run(self.run_stdio_async())
 
-    def run_sse(self, host: str = "0.0.0.0", port: int = 8000):
+    def run_sse(self):
         """
         Run the server using SSE transport.
         This mode enables real-time updates via Server-Sent Events.
-        
-        Args:
-            host: Network interface to bind to
-            port: Port number to listen on
+        The server will use the FastAPI app from FastMCP.
         """
         import asyncio
-        asyncio.run(self.run_sse_async(host=host, port=port))
+        asyncio.run(self.run_sse_async())
+        
+
 
 if __name__ == "__main__":
     # Direct execution entry point
